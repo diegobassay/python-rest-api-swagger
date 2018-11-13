@@ -1,0 +1,222 @@
+{
+   "swagger": "2.0",
+   "info": {
+      "description": "This is the swagger file that goes with our server code",
+      "version": "1.0.0",
+      "title": "Swagger Rest Article"
+   },
+   "consumes": [
+      "application/json"
+   ],
+   "produces": [
+      "application/json"
+   ],
+   "basePath": "/api",
+   "paths": {
+      "/contatos": {
+         "get": {
+            "operationId": "app.api.contatos_rest_controller.ContatosRestController.buscar_todos_os_contatos",
+            "tags": [
+               "Contato"
+            ],
+            "summary": "",
+            "description": "",
+            "parameters": [
+            ],
+            "responses": {
+               "200": {
+                  "description": "Lista de contato retornada com sucesso!",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "properties": {
+                           "id": {
+                              "type": "string"
+                           },
+                           "canal": {
+                              "type": "string"
+                           },
+                           "nome": {
+                              "type": "string"
+                           },
+                           "obs": {
+                              "type": "string"
+                           },
+                           "valor": {
+                              "type": "string"
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "post": {
+            "operationId": "app.api.contatos_rest_controller.ContatosRestController.criar_contato",
+            "tags": [
+               "Contato"
+            ],
+            "summary": "Operação para criar novo contato",
+            "description": "Crie uma novo contato na lista de contato",
+            "parameters": [
+               {
+                  "name": "contato",
+                  "in": "body",
+                  "description": "Objeto contato",
+                  "required": true,
+                  "schema": {
+                     "type": "object",
+                     "properties": {
+                        "id": {
+                           "type": "integer",
+                           "description": "Identificador do contato"
+                        },
+                        "canal": {
+                           "type": "string",
+                           "description": "Tipo de canal"
+                        },
+                        "nome": {
+                           "type": "string",
+                           "description": "Nome do contato"
+                        },
+                        "obs": {
+                           "type": "string",
+                           "description": "Observações sobre o contato"
+                        },
+                        "valor": {
+                           "type": "string",
+                           "description": "Dado do contato"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Contato adicionado a lista com sucesso"
+               }
+            }
+         }
+      },
+      "/contato/{contato_id}": {
+         "get": {
+            "operationId": "app.api.contatos_rest_controller.ContatosRestController.buscar_contatos_por_id",
+            "tags": [
+               "Contato"
+            ],
+            "summary": "Obtem um contato do banco de dados",
+            "description": "Obtem um contato do banco de dados",
+            "parameters": [
+               {
+                  "name": "contato_id",
+                  "in": "path",
+                  "description": "Id do contato para fazer filtro",
+                  "type": "integer",
+                  "required": true
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Successfully read person from people list operation",
+                  "schema": {
+                  "properties": {
+                        "id": {
+                           "type": "integer",
+                           "description": "Identificador do contato"
+                        },
+                        "canal": {
+                           "type": "string",
+                           "description": "Tipo de canal"
+                        },
+                        "nome": {
+                           "type": "string",
+                           "description": "Nome do contato"
+                        },
+                        "obs": {
+                           "type": "string",
+                           "description": "Observações sobre o contato"
+                        },
+                        "valor": {
+                           "type": "string",
+                           "description": "Dado do contato"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "put": {
+            "operationId": "app.api.contatos_rest_controller.ContatosRestController.atualizar_contato",
+            "tags": [
+               "Contato"
+            ],
+            "summary": "Atualiza um contato na base de dados",
+            "description": "Atualiza um contato na base de dados",
+            "parameters": [
+               {
+                  "name": "contato_id",
+                  "in": "path",
+                  "description": "Id do contato a ser atualizado",
+                  "type": "integer",
+                  "required": true
+               },
+               {
+                  "name": "contato",
+                  "in": "body",
+                  "schema": {
+                     "type": "object",
+                     "properties": {
+                        "id": {
+                           "type": "integer",
+                           "description": "Identificador do contato"
+                        },
+                        "canal": {
+                           "type": "string",
+                           "description": "Tipo de canal"
+                        },
+                        "nome": {
+                           "type": "string",
+                           "description": "Nome do contato"
+                        },
+                        "obs": {
+                           "type": "string",
+                           "description": "Observações sobre o contato"
+                        },
+                        "valor": {
+                           "type": "string",
+                           "description": "Dado do contato"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Contato atualizdo com sucesso na base."
+               }
+            }
+         },
+         "delete": {
+            "operationId": "app.api.contatos_rest_controller.ContatosRestController.deletar_contato",
+            "tags": [
+               "Contato"
+            ],
+            "summary": "Deleta um contato na base de dados",
+            "description": "Deleta um contato",
+            "parameters": [
+               {
+                  "name": "contato_id",
+                  "in": "path",
+                  "type": "string",
+                  "required": true
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Contato deletado com sucesso!"
+               }
+            }
+         }
+      }
+   }
+}
