@@ -29,7 +29,6 @@ pytest-cov==2.6.0
 pytz==2018.7
 PyYAML==3.13
 requests==2.20.1
--e git+https://github.com/postrational/rest_api_demo@1660892257a41e19f8c7b21c81fbb05be5c188d5#egg=rest_api_demo
 six==1.11.0
 SQLAlchemy==1.2.13
 swagger-ui-bundle==0.0.2
